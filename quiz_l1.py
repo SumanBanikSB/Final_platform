@@ -106,6 +106,7 @@ screen.blit(image3,(200,260))
 pygame.display.flip()
 Not_Pressed = True
 def Question_Prompt(certa, imagemQ, custom, right_side, height):
+    
     global score
     screen.fill( test_color )
     running = True
@@ -141,6 +142,7 @@ def Question_Prompt(certa, imagemQ, custom, right_side, height):
     elif certa == 'D':
         correct = rectD
     pygame.display.flip()
+    
     #Detectar click
     while running == True:
         mx, my = pygame.mouse.get_pos() 
@@ -172,7 +174,7 @@ def Question_Prompt(certa, imagemQ, custom, right_side, height):
                             screen.blit(wrong, (56,160))
                             pygame.display.flip()
                         elif certa == 'A':   
-                            screen.blit(wrong, (56,160))
+                            screen.blit(correct, (56,160))
                             pygame.display.flip()                        
                         pygame.time.wait(1000)
                         running = False
@@ -184,7 +186,7 @@ def Question_Prompt(certa, imagemQ, custom, right_side, height):
                             screen.blit(wrong, (56,160))
                             pygame.display.flip()
                         elif certa == 'C':
-                            screen.blit(wrong,(56,160))
+                            screen.blit(correct,(56,160))
                             pygame.display.flip()
                         elif certa == 'D':
                             screen.blit(wrong, (56,160))
@@ -256,7 +258,7 @@ while Not_Pressed == True:
                 cube.fill((0,25,153))
                 pygame.display.flip() 
                 pygame.time.wait(1000)
-                Question_Prompt('B',question1a, False, 0,0)
+                Question_Prompt('A',question1a, False, 0,0)
                 print("Passou 1")
                 screen.fill( test_color )
                 screen.blit(quizword, (215, 30))
@@ -299,6 +301,7 @@ while Not_Pressed == True:
                 pygame.time.wait(1000)
                 print("passou")
                 Question_Prompt('A', question5a, True, 50,20)
+
                 
                 if score == 0:
                     screen.blit(p0,(56,160))
@@ -318,20 +321,12 @@ while Not_Pressed == True:
                 elif score == 5:
                     print("Voce tirou mais de 60%, parabens! Mas, acho que voce consegue mais!")
                     screen.blit(p5,(56,160))
+                    
            
                 pygame.display.flip()
                 pygame.time.wait(1000)
                 pygame.quit()
-            elif numero%2:
-                print("1 alternativa")
-                screen.blit(image5,(200,160))
-                pygame.display.flip()    
-                numero = numero + 1
-            else:
-                print("2 Alternativa")
-                screen.blit(image4,(200,160))
-                pygame.display.flip()
-                numero = numero + 1
+           
 
 #main loop
 Teste = True
